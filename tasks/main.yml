@@ -1,2 +1,27 @@
 ---
-# tasks file for ansible-virtual-box
+- apt_key:
+    id: A2F683C52980AECF
+    url: https://www.virtualbox.org/download/oracle_vbox_2016.asc
+  become: true
+  when: ansible_system == 'Linux'
+
+- apt_repository:
+    repo: 'deb http://download.virtualbox.org/virtualbox/debian stretch contrib'
+    filename: virtualbox
+  become: true
+  notify: update apt cache
+  when: ansible_system == 'Linux'
+
+- meta: flush_handlers
+
+- apt:
+    name: '{{ item }}'
+  become: true
+  with_items:
+  - nfs-kernel-server
+  - virtualbox-5.1
+  when: ansible_system == 'Linux'
+
+- homebrew_cask:
+    name: virtualbox
+  when: ansible_system == 'Darwin'

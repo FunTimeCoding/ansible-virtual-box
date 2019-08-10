@@ -1,0 +1,44 @@
+---
+- apt_key:
+    id: A2F683C52980AECF
+    url: https://www.virtualbox.org/download/oracle_vbox_2016.asc
+  remote_user: root
+  when: ansible_os_family == 'Debian'
+
+- apt_repository:
+    # Only contrib is required for VirtualBox.
+    repo: '{{ virtual_box.package_repository }}'
+    filename: virtualbox
+  remote_user: root
+  when: ansible_os_family == 'Debian'
+
+- apt:
+    name: nfs-kernel-server,virtualbox-6.0
+  remote_user: root
+  when: ansible_os_family == 'Debian'
+
+- homebrew_cask:
+    name: virtualbox
+  when: ansible_system == 'Darwin'
+
+# TODO: Do I need autostart?
+#- template:
+#    src: org.virtualbox.vboxautostart.plist
+#    dest: /Library/LaunchDaemons/org.virtualbox.vboxautostart.plist
+#    owner: root
+#    group: wheel
+#  when: ansible_system == 'Darwin'
+#
+#- file:
+#    path: /etc/virtualbox
+#    state: directory
+#    owner: root
+#    group: wheel
+#  when: ansible_system == 'Darwin'
+#
+#- template:
+#    src: autostart.cfg
+#    dest: /etc/virtualbox/autostart.cfg
+#    owner: root
+#    group: wheel
+#  when: ansible_system == 'Darwin'

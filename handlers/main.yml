@@ -1,4 +1,0 @@
----
-- name: update apt cache
-  command: apt-get update
-  become: true

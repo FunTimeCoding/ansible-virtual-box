@@ -1,4 +1,4 @@
 ---
 virtual_box:
-  package_repository: 'deb http://download.virtualbox.org/virtualbox/debian {{ ansible_distribution_release }} contrib'
+  package_repository: 'deb https://download.virtualbox.org/virtualbox/debian {{ ansible_distribution_release }} contrib'
   autostart_user: example

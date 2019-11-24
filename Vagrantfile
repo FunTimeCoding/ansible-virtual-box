@@ -28,7 +28,7 @@ Vagrant.configure('2') do |config|
   end
 
   config.vm.provider :virtualbox do |v|
-    v.name = 'name'
+    v.name = 'ansible-virtual-box'
     v.cpus = 1
     v.memory = 1024
   end

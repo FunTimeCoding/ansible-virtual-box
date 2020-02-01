@@ -13,7 +13,7 @@
   when: ansible_os_family == 'Debian'
 
 - apt:
-    name: nfs-kernel-server,virtualbox-6.0
+    name: nfs-kernel-server,virtualbox-6.1
   remote_user: root
   when: ansible_os_family == 'Debian'
 

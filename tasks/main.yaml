@@ -13,7 +13,7 @@
   when: ansible_os_family == 'Debian'
 
 - apt:
-    name: virtualbox-6.1
+    name: 'virtualbox-{{ virtual_box.version }}'
   remote_user: root
   when: ansible_os_family == 'Debian'
 

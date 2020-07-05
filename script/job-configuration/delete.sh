@@ -1,3 +1,3 @@
 #!/bin/sh -e
 
-~/src/jenkins-tools/bin/delete-job.sh ansible-virtual-box
+~/src/continuous-integration-tools/bin/jenkins/delete-job.sh ansible-virtual-box

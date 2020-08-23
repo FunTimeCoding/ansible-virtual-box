@@ -9,6 +9,7 @@
     # Only contrib is required for VirtualBox.
     repo: '{{ virtual_box.package_repository }}'
     filename: virtualbox
+    mode: 0644
   remote_user: root
   when: ansible_os_family == 'Debian'
 

@@ -22,6 +22,13 @@
     name: virtualbox
   when: ansible_system == 'Darwin'
 
+# TODO: Make address ranges configurable
+#- template:
+#    src: networks.txt
+#    dest: /etc/vbox/networks.conf
+#  remote_user: root
+#  when: ansible_os_family == 'Debian'
+
 # TODO: Do I need autostart?
 #- template:
 #    src: org.virtualbox.vboxautostart.plist
@@ -38,7 +45,7 @@
 #  when: ansible_system == 'Darwin'
 #
 #- template:
-#    src: autostart.cfg
+#    src: autostart.txt
 #    dest: /etc/virtualbox/autostart.cfg
 #    owner: root
 #    group: wheel
